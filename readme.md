@@ -38,8 +38,8 @@ Visualizing results:
 Representing the F1 score and IoU doesn't make much sense since they are just scalars in range (0, 1).
 When it comes to visualizing model output I think one option would be a joint .eaf file with both the gold and predictor labels as 
 annotation tracks, so that any deviations in the predicted segments would be immediately visible. 
-    
 However, this would obviously be clunky to do any further work with and also not much more useful aside from a quick first impression.
+
 Alternatively, something like a simple confusion matrix (e.g. scikit ConfusionMatrixDisplay) could show what type of error occurs most frequently.
 
 Comments:
