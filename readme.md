@@ -15,7 +15,7 @@ https://www.sign-lang.uni-hamburg.de/meinedgs/html/1984189_de.html
 | Frame-level macro F1 (B/I/O) | 0.5644 |
 | IoU | 0.6073 |
 
-### Phrase-level
+### Sentence-level
 
 | Metric | Value |
 |---|---|
