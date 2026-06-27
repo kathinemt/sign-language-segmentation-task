@@ -45,7 +45,7 @@ Alternatively, something like a simple confusion matrix (e.g. scikit ConfusionMa
 Comments:
     
 On a sign level, the F1 score hasn't changed much from the basic E1-E4 models presented in the paper, but performs worse than the 
-models with depth=4. The IoU seems to be definitively worse than the baseline E1 (-0.06), and even more so when it comes to the depth=4 versions/tuned decoding versions (-0.9). I do find this lower score rather surprising considering the data I took was also from the DGS corpus, which was the training data.
+models with depth=4. The IoU seems to be definitively worse than the baseline E1 (-0.06), and even more so when it comes to the depth=4 versions/tuned decoding versions (-0.9). I do find this lower score rather surprising considering the data I took was also from the DGS corpus, which was the training data. Overall, it tracks that the signs were oversegmented rather than undersegmented.
     
 On the sentence level, something clearly went wrong. I tried running the model with other input .pose files as well, and none of them
 showed sentence segmentation. Considering that we know there was no proper segmentation done, it makes no sense to consider the F1 score/IoU.
