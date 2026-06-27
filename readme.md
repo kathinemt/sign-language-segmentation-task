@@ -13,7 +13,7 @@ https://www.sign-lang.uni-hamburg.de/meinedgs/html/1984189_de.html
 | Gold segments | 62 |
 | Pred segments | 66 |
 | Frame-level macro F1 (B/I/O) | 0.5644 |
-| IoU | 0.6073 |
+| IoU | 0.7148 |
 
 ### Sentence-level
 
@@ -24,7 +24,7 @@ https://www.sign-lang.uni-hamburg.de/meinedgs/html/1984189_de.html
 | Gold segments | 17 |
 | Pred segments | 1 |
 | Frame-level macro F1 (B/I/O) | 0.3680 |
-| IoU | 0.9725 |
+| IoU | 1.0000 |
 
 Ran as:
 ```
@@ -45,7 +45,7 @@ Alternatively, something like a simple confusion matrix (e.g. scikit ConfusionMa
 Comments:
     
 On a sign level, the F1 score hasn't changed much from the basic E1-E4 models presented in the paper, but performs worse than the 
-models with depth=4. The IoU seems to be definitively worse than the baseline E1 (-0.06), and even more so when it comes to the depth=4 versions/tuned decoding versions (-0.9). I do find this lower score rather surprising considering the data I took was also from the DGS corpus, which was the training data. Overall, it tracks that the signs were oversegmented rather than undersegmented.
+models with depth=4, which I do find rather odd. The IoU is almost exactly aligned with the highest IoU found in the evaluation metrics of the paper (0.69). This makes sense since the data I used was part of the training data. Overall, it tracks that the signs were oversegmented rather than undersegmented.
     
 On the sentence level, something clearly went wrong. I tried running the model with other input .pose files as well, and none of them
 showed sentence segmentation. Considering that we know there was no proper segmentation done, it makes no sense to consider the F1 score/IoU.
