@@ -32,6 +32,7 @@ pose_to_segments --pose dgs_sample.pose --elan output.eaf
 python stats.py --gold_eaf gold_label.eaf --pred_eaf output.eaf --gold-tier "Lexem_Gebärde_r_B" --pred-tier SIGN
 python stats.py --gold_eaf gold_label.eaf --pred_eaf output.eaf --gold-tier "Deutsche_Übersetzung_B" --pred-tier SENTENCE
 ```
+I didn't include any testing in order to keep this short, hope you don't mind!
 
 Visualizing results:
     
