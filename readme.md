@@ -38,8 +38,9 @@ I didn't include any testing in order to keep this short, I hope that's okay.
 
 Visualizing results:
 
-The output of running stats.py includes a new ELAN file, which shows both the predicted and gold labels.
-![A screenshot showing the "output_with_gold.eaf" file, showcasing both predicted and gold tiers in the same file.](/elan_screenshot.jpeg "Screeenshot of the "output_with_gold.eaf" ELAN file containing the gold and prediction tiers.")
+The output of running stats.py includes a new ELAN file, which shows both the predicted and gold labels:
+
+![A screenshot showing the "output_with_gold.eaf" file, showcasing both predicted and gold tiers in the same file.](https://github.com/kathinemt/sign-language-segmentation-task/blob/c6d7111ea8b8858235ba54b21d87db03301a14d8/elan_screenshot.jpeg "Screeenshot of the "output_with_gold.eaf" ELAN file containing the gold and prediction tiers.")
 
 
 Comments:
