@@ -29,7 +29,7 @@ https://www.sign-lang.uni-hamburg.de/meinedgs/html/1984189_de.html
 Ran as:
 ```
 wget -O dgs_sample.pose https://datasets.sigma-sign-language.com/poses/holistic/dgs_corpus/1984189_b.pose
-wget -O check.mp4 https://www.sign-lang.uni-hamburg.de/meinedgs/videos/1984189/1984189_1b1.mp4
+wget -O dgs_sample.mp4 https://www.sign-lang.uni-hamburg.de/meinedgs/videos/1984189/1984189_1b1.mp4
 pose_to_segments --pose="dgs_sample.pose" --elan="output.eaf" --video="dgs_sample.mp4"
 python stats.py --gold_eaf gold_label.eaf --pred_eaf output.eaf --gold-tier "Lexem_Gebärde_r_B" --pred-tier SIGN
 python stats.py --gold_eaf gold_label.eaf --pred_eaf output.eaf --gold-tier "Deutsche_Übersetzung_B" --pred-tier SENTENCE
