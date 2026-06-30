@@ -40,12 +40,12 @@ Visualizing results:
 
 The output of running stats.py includes a new ELAN file, which shows both the predicted and gold labels:
 
-![A screenshot showing the "output_with_gold.eaf" file, showcasing both predicted and gold tiers in the same file.](https://github.com/kathinemt/sign-language-segmentation-task/blob/c6d7111ea8b8858235ba54b21d87db03301a14d8/elan_screenshot.jpeg "Screeenshot of the "output_with_gold.eaf" ELAN file containing the gold and prediction tiers.")
+![A screenshot showing the "output_with_gold.eaf" file, showcasing both predicted and gold tiers in the same file.](elan_screenshot.jpeg)
 
 
 Comments:
     
-On a sign level, the F1 score dropped by a lot. Compared also to the previous model I ran this on, there is much more oversegmentation (prev. 66 compared to now 75). IoU also dropped rather hard (prev. 0.71 to now 0.5). Overall, the model still oversegments quite drastically.
+On the sign level, the F1 score dropped by a lot. Compared also to the previous model I ran this on, there is much more oversegmentation (prev. 66 compared to now 75). IoU also dropped rather hard (prev. 0.71 to now 0.5). Overall, the model still oversegments quite drastically.
     
 The sentence level actually worked this time and showed an F1 score and IoU even worse than on a sign level. However, in the gold label sentence tier, the sentences are lined up without any breaks in between (likely to represent the continuous flow of signing better?). This would artifically lower both evaluation metrics for the model's predicted sentences, since the model does not predict sentences as perfectly lined up. I am also a little surprised by the sentences being undersegmented, since it didn't seem like this occurred in the results of the paper.
 
