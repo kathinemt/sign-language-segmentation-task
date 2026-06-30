@@ -19,6 +19,30 @@ def parse_eaf_segments(eaf_path: str, tier_id: str):
     return segments
 
 
+def merge_gold_tiers_into_pred(
+    gold_eaf_path: str,
+    pred_eaf_path: str,
+    output_path: str,
+) -> None:
+    """
+    Add gold tiers to predicted tiers for visualization + produce new output file.
+    """
+    gold = pympi.Eaf(gold_eaf_path)
+    pred = pympi.Eaf(pred_eaf_path)
+
+    tier_ids = ["Lexem_Gebärde_r_B", "Deutsche_Übersetzung_B"]
+
+    for tier_id in tier_ids:
+        pred.add_tier(tier_id, ling="default-lt")
+        #  wanted to use pympi's copy_tier() but it kept failing,
+        # so manually adding the tier id instead
+
+        for start, end, value in gold.get_annotation_data_for_tier(tier_id):
+            pred.add_annotation(tier_id, start, end, value)
+
+    pred.to_file(output_path)
+
+
 def ms_to_frame(ms: float, fps: float) -> int:
     return int(round(ms / 1000.0 * fps))
 
@@ -53,6 +77,9 @@ def evaluate(gold_eaf: str, pred_eaf: str, gold_tier: str, pred_tier: str, fps: 
     gold_segments = parse_eaf_segments(gold_eaf, gold_tier)
     pred_segments = parse_eaf_segments(pred_eaf, pred_tier)
 
+    # add_gold_eaf_segments(eaf_gold_input=gold_eaf, eaf_output_path=pred_eaf)
+    # add_eaf_comparison(eaf_gold_input=gold_eaf, eaf_pred_input=pred_eaf)
+
     total_ms = max(
         max((e for _, e in gold_segments), default=0),
         max((e for _, e in pred_segments), default=0),
@@ -74,8 +101,10 @@ def evaluate(gold_eaf: str, pred_eaf: str, gold_tier: str, pred_tier: str, fps: 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--gold_eaf", required=True, help="Path to the gold-standard .eaf file")
-    parser.add_argument("--pred_eaf", required=True, help="Path to your model's predicted .eaf file")
+    parser.add_argument("--gold_eaf", required=True,
+                        help="Path to the gold-standard .eaf file")
+    parser.add_argument("--pred_eaf", required=True,
+                        help="Path to your model's predicted .eaf file")
     parser.add_argument(
         "--gold-tier",
         required=True,
@@ -89,9 +118,14 @@ def main():
     )
     args = parser.parse_args()
 
-    results = evaluate(args.gold_eaf, args.pred_eaf, args.gold_tier, args.pred_tier, fps=25.0)
+    merge_gold_tiers_into_pred(gold_eaf_path=args.gold_eaf,
+                               pred_eaf_path=args.pred_eaf, output_path="output_with_gold.eaf")
 
-    print(f"Gold tier: {results['gold_tier']}  |  Pred tier: {results['pred_tier']}")
+    results = evaluate(args.gold_eaf, args.pred_eaf,
+                       args.gold_tier, args.pred_tier, fps=25.0)
+
+    print(
+        f"Gold tier: {results['gold_tier']}  |  Pred tier: {results['pred_tier']}")
     print(f"  Gold segments: {results['n_gold_segments']}")
     print(f"  Pred segments: {results['n_pred_segments']}")
     print(f"  Frame-level macro F1 (B/I/O): {results['frame_f1']:.4f}")

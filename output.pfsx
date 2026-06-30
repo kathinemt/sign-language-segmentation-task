@@ -20,7 +20,7 @@
         <String>BAS - WebMAUS Basic</String>
     </pref>
     <pref key="FrameLocation">
-        <Object class="java.awt.Point">320,137</Object>
+        <Object class="java.awt.Point">530,377</Object>
     </pref>
     <pref key="LayoutManager.SelectedTabIndex">
         <Int>7</Int>
@@ -29,7 +29,7 @@
         <String>mpi.eudico.client.annotator.viewer.TimeLineViewer</String>
     </pref>
     <pref key="SelectionBeginTime">
-        <Long>1980</Long>
+        <Long>0</Long>
     </pref>
     <pref key="MultiTierViewer.ActiveTierName">
         <String>default</String>
@@ -53,20 +53,20 @@
         <Long>0</Long>
     </pref>
     <pref key="MediaTime">
-        <Long>1980</Long>
+        <Long>0</Long>
     </pref>
     <pref key="SelectionEndTime">
-        <Long>2420</Long>
+        <Long>0</Long>
     </pref>
     <prefGroup key="TierColors">
         <pref key="default">
-            <Object class="java.awt.Color">160,160,0</Object>
+            <Object class="java.awt.Color">0,90,90</Object>
         </pref>
         <pref key="SENTENCE">
-            <Object class="java.awt.Color">0,0,90</Object>
+            <Object class="java.awt.Color">90,0,90</Object>
         </pref>
         <pref key="SIGN">
-            <Object class="java.awt.Color">0,160,0</Object>
+            <Object class="java.awt.Color">0,160,160</Object>
         </pref>
     </prefGroup>
     <prefList key="MultiTierViewer.TierOrder">
