@@ -39,7 +39,7 @@ I didn't include any testing in order to keep this short, I hope that's okay.
 Visualizing results:
 
 The output of running stats.py includes a new ELAN file, which shows both the predicted and gold labels.
-![A screenshot showing the "output_with_gold.eaf" file, showcasing both predicted and gold tiers in the same file.](/elan_screenshot.jpeg?raw=true "Screeenshot of the "output_with_gold.eaf" ELAN file containing the gold and prediction tiers.")
+![A screenshot showing the "output_with_gold.eaf" file, showcasing both predicted and gold tiers in the same file.](elan_screenshot.jpeg?raw=true "Screeenshot of the "output_with_gold.eaf" ELAN file containing the gold and prediction tiers.")
 
 Comments:
     
